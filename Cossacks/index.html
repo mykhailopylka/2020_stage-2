@@ -2,10 +2,10 @@
 <html lang="uk">
   <head>
     <meta charset="UTF-8" />
-    <meta name="keywords" content="dantist" />
+    <meta name="keywords" content="cossacs" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Ваша стаматологія</title>
+    <title>Козацькі розваги - турніри з автомодельного спорту</title>
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/slick.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -23,62 +23,57 @@
     <!--load all styles Font Awesome-->
   </head>
   <body>
+    <!-- розміщення з початку body  JS необхідне для коректної роботи svg анімації -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/lottie.js"></script>
+    <!-- /JS=========================================== -->
     <div class="container">
       <header class="header">
         <!-- Header content -->
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+          header Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
           delectus molestias ea corporis perferendis esse rerum, dolor sed quos
           tempore fugit vero vel nemo, autem facilis in corrupti a vitae nobis,
           voluptate unde ipsam omnis consequuntur dolores! Ipsam provident
           obcaecati sequi, quasi natus voluptatem laudantium vel, maiores
           necessitatibus totam earum.
         </p>
+        <!-- slider for background ----------------- -->
+        <div class="header-slider">
+          <div
+            class="eachsliderimage"
+            style="background-image: url('images/slide-1.JPG')"
+          ></div>
+          <div
+            class="eachsliderimage"
+            style="background-image: url('images/slide-6.jpg')"
+          ></div>
+          <div
+            class="eachsliderimage"
+            style="background-image: url('images/slide-5.jpg')"
+          ></div>
+        </div>
+        <!-- end slider --------------------------- -->
+        <!-- animation ---------------------------- -->
+        <div class="header-animation" id="header-animation"></div>
+        <!-- з незрозумілих причин, JS не підтягує клас, а вимагає тільки ID... -->
+        <!-- /animation ---------------------- -->
       </header>
-
-      <nav>
-        <!-- Navigation -->
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-          delectus molestias ea corporis perferendis esse rerum, dolor sed quos
-          tempore fugit vero vel nemo, autem facilis in corrupti a vitae nobis,
-          voluptate unde ipsam omnis consequuntur dolores! Ipsam provident
-          obcaecati sequi, quasi natus voluptatem laudantium vel, maiores
-          necessitatibus totam earum.
-        </p>
-      </nav>
 
       <main class="main">
         <!-- Main content -->
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-          delectus molestias ea corporis perferendis esse rerum, dolor sed quos
-          tempore fugit vero vel nemo, autem facilis in corrupti a vitae nobis,
-          voluptate unde ipsam omnis consequuntur dolores! Ipsam provident
-          obcaecati sequi, quasi natus voluptatem laudantium vel, maiores
-          necessitatibus totam earum.
-        </p>
-      </main>
 
-      <aside>
-        <!-- Sidebar / Ads -->
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-          delectus molestias ea corporis perferendis esse rerum, dolor sed quos
-          tempore fugit vero vel nemo, autem facilis in corrupti a vitae nobis,
-          voluptate unde ipsam omnis consequuntur dolores! Ipsam provident
-          obcaecati sequi, quasi natus voluptatem laudantium vel, maiores
-          necessitatibus totam earum.
-        </p>
-      </aside>
+        <!-- <div class="wrapper">
+          <div class="block">
+            <p>sdfsd sdfdsf sdfdsf</p>
+          </div>
+        </div> -->
+      </main>
 
       <footer class="footer">
         <!-- Footer content -->
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+          footer Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
           delectus molestias ea corporis perferendis esse rerum, dolor sed quos
           tempore fugit vero vel nemo, autem facilis in corrupti a vitae nobis,
           voluptate unde ipsam omnis consequuntur dolores! Ipsam provident
@@ -87,5 +82,10 @@
         </p>
       </footer>
     </div>
+    <!-- JS========================= -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- =========================== -->
   </body>
 </html>
