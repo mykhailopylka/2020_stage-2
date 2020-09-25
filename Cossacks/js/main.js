@@ -21,6 +21,6 @@ var animData = {
   renderer: "svg",
   loop: false,
   autoplay: true,
-  path: "../js/cossacs-1.json",
+  path: "../js/cossacs-4.json",
 };
 anim = lottie.loadAnimation(animData);
