@@ -57,6 +57,7 @@ ul {
 /* HEADER================================== */
 .header {
   background-color: #f7f7f7;
+  margin-bottom: 10rem;
 }
 .header-line {
   display: flex;
@@ -71,25 +72,24 @@ ul {
 }
 .menu-list {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  width: 100%;
 }
 .menu-list li {
   text-transform: uppercase;
-  transition: 0.25s all;
-  padding: 0 2rem 5px 0;
-  width: auto;
-  text-align: center;
+  padding: 0 10px 10px;
+  border-bottom: 3px solid transparent;
+  transition: 0.5s all;
 }
 .menu-list li:hover {
-  color: #81a63d;
+  color: #81a637;
+  border-bottom: 3px solid #81a637;
 }
 /* conteiner for slider ------------------------------- */
 
 /*  sliders background --------------------*/
 .header-slider {
-  max-width: 100vw;
+  max-width: 99vw;
   overflow: hidden;
 }
 
@@ -116,35 +116,337 @@ ul {
 /* video */
 .main-video {
   margin: 0 auto;
-  height: 400px;
+  /* height: 800px; */
   /* width: 100%; */
 }
 
 /* photo --------------------------------- */
-.main-photo__painterest {
+.main-photo {
+  max-width: 1000px;
+  margin: 80px auto 0;
+}
+.main-photo__selected {
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 1rem;
+}
+.minimized {
+  margin: 0 auto;
+  border-radius: 15px;
+  max-width: 20rem;
+  transition: 0.25s all;
+}
+/* .main-photo__pinterest img:nth-child(even) {
+  height: 30rem;
+}
+.main-photo__pinterest img:nth-child(2n + 1) {
+  height: 20rem;
+}
+.main-photo__pinterest img:nth-child(3n + 1) {
+  height: 15rem;
+} */
+.minimized:hover {
+  filter: brightness(80%);
+  cursor: zoom-in;
+  border: 1px solid yellow;
+}
+
+/* ********************************************* */
+
+/* Збільшення картинки -------------------------------- */
+/* дані ідентифікатори інтеркапсулюються через JS */
+#magnify {
+  display: none;
+  /* position: absolute;  */
+  position: fixed;
+  max-width: 600px;
+  height: auto;
+  z-index: 9999;
+}
+#magnify img {
+  width: 100%;
+}
+/* затемняющий фон */
+#overlay {
+  display: none;
+  background: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  z-index: 9990;
+}
+/* хрестик---------------- */
+#close-popup {
+  width: 30px;
+  height: 30px;
+  background: #ffffff;
+  border: 1px solid #afafaf;
+  border-radius: 15px;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+#close-popup i {
+  width: 30px;
+  height: 30px;
+  background: url(../images/cross.png) no-repeat center center;
+  background-size: 16px 16px;
+  display: block;
+}
+@keyframes rota {
+  25% {
+    transform: rotate(360deg);
+  }
+}
+#close-popup:hover {
+  animation: rota 4s infinite normal;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+/*  main-slider--------------------------------------- */
+.main-slider {
+  margin: 50px auto;
+  background-color: #f7f7f7;
+}
+.main-slider__selected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+.slider__img {
+  max-width: 40rem;
+}
+/* через інспектор виясняємо, що в кнопках слайдера є спільний клас slick-arow, тому модифікуємо його під свої потреби */
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  /*   transform: translateY(-50%) задає можливість підняти елемент на половину своєї висоти, так як    top: 50% опускає не на середину картинки, а не середину + вся висота елемента кнопки*/
+  transform: translateY(-50%);
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 2;
+}
+.slick-prev {
+  left: -40px;
+}
+.slick-next {
+  right: -40px;
+}
+/* holiday ------------------------- */
+.holiday {
+  display: flex;
+  z-index: 2;
+  width: 100%;
+}
+.holiday-content img {
+  float: left;
+  max-width: 50%;
+  padding-right: 2rem;
+}
+/* testimonials--------------------- */
+.testimonials {
+  background-image: url(../images/testimonials.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  width: 100%;
+  padding: 10% 0;
+  margin: 1.9rem 0 -2rem;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+}
+/* два еліпса для декорування фото */
+.testimonials::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  background: #fff;
+  -moz-border-radius: 100px / 50px;
+  -webkit-border-radius: 100px / 50px;
+  border-radius: 650px / 40px;
+  top: -3rem;
+  left: 0;
+}
+.testimonials::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  background: #fff;
+  -moz-border-radius: 100px / 50px;
+  -webkit-border-radius: 100px / 50px;
+  border-radius: 650px / 40px;
+  bottom: -3rem;
+  left: 0;
+}
+.testimonials-head {
+  padding: 1rem 0;
+  margin: 0;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.testimonials-slider {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+/* FOOTER =================================================== */
+/* .footer {
+  margin-top: 5rem;
+  text-align: center;
+  background-color: #2f2f30;
+  color: #81a637;
+  z-index: 2; 
+}*/
+.footer {
+  z-index: 2;
+}
+/* contacts-------------------------- */
+.contacts {
+  width: 100%;
+  margin-top: 3rem;
+  background-color: #ededed;
+  /* margin-bottom: 10rem; */
+}
+.contacts-conteiner {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  /* grid-gap: 1em; */
+  padding-bottom: 1rem;
+}
+.contacts-block {
   display: flex;
   flex-direction: column;
-  /* justify-content: right; */
+  align-items: left;
+  justify-self: center;
+  width: 100%;
+}
+.contacts-block__header {
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: 0;
+}
+.contacts-block__header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  height: 2px;
+  background-color: #b0b0b0;
+}
+/* link------------------------- */
+.contacts-links {
+  padding-left: 0px;
+}
+.contacts-links li {
+  background: url(../images/right-arrow-b.svg) no-repeat 0px 7px;
+  padding-left: 20px;
+  background-size: 0.8em;
+  padding-bottom: 1rem;
+}
+/* day------------------------- */
+.contacts-block__day {
+  display: flex;
+  justify-content: space-between;
+  /* max-width: 20rem; */
+  width: 100%;
+  border-bottom: 1px solid #b0b0b0;
+  padding-top: 1rem;
+}
+.contacts-block__schedule {
+  padding-left: 1.8rem;
+}
+.contacts-block__time {
+  padding-bottom: 0.5rem;
+}
+.contacts-day li {
+  background: url(../images/clock.svg) no-repeat 25px 22px;
+  padding-left: 20px;
+  background-size: 1em;
+}
+.contacts-day ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-left: -1.5rem;
+}
+/* social --------------------------- */
+.contacts-block__social {
+  position: relative;
+  padding-bottom: 1rem;
+}
+.contacts-block__social::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  height: 2px;
+  background-color: #b0b0b0;
+}
+.contacts-social {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.contacts-social img {
+  width: 2.2rem;
+  margin-right: 0.5rem;
+}
+/* Recent Posts---------------------- */
+.contacts-block__posts {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 1rem;
+  color: #000;
+}
+.contacts-block__posts img {
+  width: 3rem;
+  height: 3rem;
+}
+.contacts-block__posts a {
+  padding-left: 1rem;
+}
+/* hover----------------------------- */
+.contacts-links a {
+  transition: 0.2s all;
+}
+.contacts-block__posts a {
+  transition: 0.2s all;
+}
+.contacts-block__posts a:hover,
+.contacts-links a:hover {
+  color: #33aad5;
+}
+.footer-copyright {
+  display: flex;
   flex-wrap: wrap;
-  max-width: 1000px;
-  /* width: 100%; */
-  height: 1300px;
-  margin: 80px auto 0;
-  border: 1px solid red;
-}
-.main-photo__painterest img {
-  width: 20rem;
-  padding: 1rem;
-}
-.main-photo__painterest img:nth-child(even) {
-  height: 40%;
-}
-/* .main-photo__painterest img:nth-child(2n + 1) {
-  height: 50%;
-} */
-/* FOOTER =================================================== */
-.footer {
-  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 4rem;
+  background-color: #bfbfbf;
 }
 /* MEDIA ==================================================== */
 @media (max-width: 768px) {
