@@ -55,7 +55,7 @@ var animData = {
   renderer: "svg",
   loop: false,
   autoplay: true,
-  path: "../js/cossacs-4.json",
+  path: "../js/cossacs.json",
 };
 anim = lottie.loadAnimation(animData);
 // ============================================================
@@ -79,6 +79,25 @@ $(function () {
     event.preventDefault();
     $("#overlay, #magnify").fadeOut("fast", function () {
       $("#close-popup, #magnify, #overlay").remove();
+    });
+  });
+});
+
+// трансформація бутербродного меню в хрестик і назад
+$(function () {
+  document.querySelector(".mobile-wrapper").onclick = function () {
+    document
+      .querySelector(".mobile-menu")
+      .classList.toggle("mobile-menu-active");
+  };
+});
+// виїзд меню при натисканні на іконку бутербодного меню
+$(function () {
+  $(".mobile-wrapper").on("click", function () {
+    $(".mobile-list").slideToggle(300, function () {
+      if ($(this).css("display") === "block") {
+        // $(this).removeAttr("style");
+      }
     });
   });
 });
