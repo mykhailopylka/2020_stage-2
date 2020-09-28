@@ -48,16 +48,17 @@ $(document).ready(function () {
   });
 });
 // ===========================================================
-// анімація lotti
+// lotti's animation
 var elem = document.getElementById("header-animation");
 var animData = {
   container: elem,
   renderer: "svg",
   loop: false,
   autoplay: true,
-  path: "../js/cossacs.json",
+  path: "../js/cossacs_1.json",
 };
 anim = lottie.loadAnimation(animData);
+
 // ============================================================
 // Збільшення фото при наведенні
 $(function () {
